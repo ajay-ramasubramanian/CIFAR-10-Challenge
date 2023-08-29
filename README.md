@@ -1,21 +1,12 @@
 # Image classification on limited dataset
-This  Challenge expounds multiple avenues used to perform classification on a small dataset. It has been divided into two major sections. The first section bounds the techniques under limited data, i.e, only 50 CIFAR10 images from two random classes and no external data is allowed. While the second section portrays techniques that are still bounded to 50 images from CIFAR10 but training on external datasets are allowed. The performances and trends of the methods are explored in detail.
+- The report explores multiple methods for performing image classification on a small dataset of 50 images from CIFAR-10 using neural networks and machine learning algorithms.
 
-Challenge-1:
-This challenge precludes use of any external data. Objective is to try different approaches to maximize prediction accuracy on 50 images ofCIFAR10 dataset. Apart from Neural Networks, standard machine learning algorithms also perform well on image classification. Recently, machine learning algorithms like RandomForest and SVM have been increasingly used for remote sensing applications. Hence, Method-1 tries to analyze how different models fit on the CIFAR10
-dataset. This approach will utilize the following models:
- - DecisionTreeClassifier
- - RandomForestClassifier 
- - Support Vector Machines
- - Logistic Regression
- - SGDClassifier
- - KNeighborsClassifier
+- Challenge 1 is bounded to only using the 50 CIFAR-10 images with no external data. Method 1 uses standard ML algorithms like Random Forest, Decision Tree, SVM etc. Method 2 experiments with custom neural network architectures of varying depths and hyperparameters. Method 3 uses a larger VGG-style network with regularization techniques.
 
- All the models were individually trained on the dataset to select the best hyperparameters through scikit-learn’s in-built method GridSearchCV. For the most part, the default parameters from pytorch worked the best. To get holistic results, we tried 2 approaches in the form of Boosting and Stacking
+- Challenge 2 allows usage of external datasets for pre-training, as long as they are not from the CIFAR family. It pre-trains models like ResNet, AlexNet on large datasets like ImageNet and STL-10, then fine-tunes them on the 50 CIFAR-10 images.
 
- Boosting: Boosting is an ensemble modeling technique that improves the prediction power by converting a number of weak learners to strong learners. The models used for boosting in our experiment are: RandomForestClassifier, DecisionTreeClassifier, LogisticRegression, SGDClassifier and SVC. There are various forms of Boosting available. We discuss three well-known boosting methods.
- - AdaBoost
- - Gradient Boost
- - XGBoost(Extream Gradient Boosting)
+- Results show simpler 3 layer CNNs perform best on the small dataset to avoid overfitting. AdaDelta optimizes best. Mish and SiLU activations outperform ReLU. Ensembles like boosting/stacking improve accuracy.
 
- Stacking: Stacking (stacked generalization) is a powerful ensemble method in machine learning that combines the predictions of multiple models. The idea is to use several base models to make individual predictions, and then combine those predictions using a meta-model to make a final prediction. The models used for stacking in our experiment are: RandomForestClassifier, DecisionTreeClassifier, LogisticRegression, KNeighborsClassifier and SVC.
+- Pre-training on large datasets like ImageNet before fine-tuning significantly increases validation accuracy compared to training from scratch, due to learning generalized features.
+
+- The report analyzes the various methods through evaluation metrics and discusses the experimental insights and literature reviewed for the techniques used. It systematically explores how to maximize classification on limited labeled data.
