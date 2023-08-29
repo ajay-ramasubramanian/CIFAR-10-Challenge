@@ -1,7 +1,7 @@
 # Image classification on limited dataset
 This report summarizes our work in a Kaggle-style Deep learning competition focused on image classification with limited training data. The goal of the competition was to classify images using only 50 training samples from the CIFAR-10 dataset. We were tasked with exploring various neural network architectures and machine learning algorithms to maximize classification accuracy on this small sample. Through rigorous experimentation and systematic evaluation of different modeling approaches, we were able to achieve the second place ranking in the competition. We employed techniques such as data augmentation, transfer learning, model ensembling, activation function selection, and regularization to carefully optimize performance. This report details our full methodology, including pre-processing, model development, training procedures, results analysis, and lessons learned. In the end, we were able to demonstrate state-of-the-art methods for tackling the challenging problem of learning from extremely small labeled datasets.
 
-Challenge 1 Method 1:Machine learning models
+### Challenge 1 Method 1:Machine learning models
 
 The best performing model in Challenge 1 Method 1 was Logistic Regression. The specific hyperparameters used were:
 
@@ -33,7 +33,7 @@ Default hyperparameters were sufficient, no need for tuning.
 Standard scaling normalized input features for good performance.
 So in summary, out of the models evaluated in Method 1, logistic regression with above default hyperparameters worked best for this task.
 
-Challenge 1 Method 2: Custom Deep-learning models
+### Challenge 1 Method 2: Custom Deep-learning models
 The best performing model in Challenge 1 Method 2 had the following hyperparameters:
 
 Model Architecture:
@@ -60,7 +60,7 @@ Other Hyperparameters:
 
 This model achieved an average test accuracy of 79.28% +/- 6.73% across different training instances. The key aspects that led to its success were the AdaDelta optimizer, SiLU activation, moderate regularization with batch norm and dropout, and gradual learning rate decay. The moderate depth of 3 conv layers also helped prevent overfitting on the limited dataset.
 
-Challenge 1 Method 3: Larger- Deep Learning Models
+### Challenge 1 Method 3: Larger- Deep Learning Models
 
 The best performing model in Challenge 1 Method 3 had the following hyperparameters:
 
@@ -96,7 +96,7 @@ The key aspects were:
 
 The robust regularization allowed training of a more complex model on the limited dataset without overfitting.
 
-Challenge 2: Classification using external dataset pre-training
+### Challenge 2: Classification using external dataset pre-training
 
 Method 1: Pre-training large models on external datasets
 
@@ -134,4 +134,5 @@ AlexNet & ResNet18 pre-trained on ImageNet achieved 92% accuracy
 MobileNet pre-trained on ImageNet achieved 79.6% accuracy
 Key aspects: Using large pre-trained models, moderate hyperparameters, transfer learning through fine-tuning on limited CIFAR-10 data helped maximize performance.
 
+### Conclusion
 In summary, each challenge methodically explored techniques like architecture design, hyperparameters, activations, regularization and transfer learning to optimize performance on the limited CIFAR-10 sample.
